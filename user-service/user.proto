@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package userservice;
+
+service UserService {
+  rpc Authenticate(AuthenticateRequest) returns (AuthenticateResponse) {}
+}
+
+message AuthenticateRequest {
+  string authToken = 1;
+}
+
+message AuthenticateResponse {
+  string userId = 1;
+  string name = 2;
+}

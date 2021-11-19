@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package orderservice;
+
+service OrderService {
+  rpc PlaceOrder(OrderRequest) returns (Order) {}
+}
+
+message OrderRequest {
+  string customerId = 1;
+  int32 itemId = 2;
+}
+
+message Order {
+  string customerId = 1;
+  int32 itemId = 2;
+  int32 orderNumber = 3;
+}
+
