@@ -1,7 +1,7 @@
 const grcp = require("@grpc/grpc-js");
 const protoLoader = require("@grpc/proto-loader");
 
-const packageDefinition = protoLoader.loadSync("../order-service/order.proto", {
+const packageDefinition = protoLoader.loadSync("../proto/order.proto", {
   keepCase: true,
   longs: String,
   enums: String,
@@ -16,16 +16,13 @@ const orderService = new orderProto.OrderService(
   grcp.credentials.createInsecure()
 );
 
-const packageDefinitionUser = protoLoader.loadSync(
-  "../user-service/user.proto",
-  {
-    keepCase: true,
-    longs: String,
-    enums: String,
-    defaults: true,
-    oneofs: true,
-  }
-);
+const packageDefinitionUser = protoLoader.loadSync("../proto/user.proto", {
+  keepCase: true,
+  longs: String,
+  enums: String,
+  defaults: true,
+  oneofs: true,
+});
 
 const userProto = grcp.loadPackageDefinition(packageDefinitionUser).userservice;
 

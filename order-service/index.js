@@ -2,7 +2,7 @@ const grcp = require("@grpc/grpc-js");
 
 const protoLoader = require("@grpc/proto-loader");
 
-const packageDefinition = protoLoader.loadSync("./order.proto", {
+const packageDefinition = protoLoader.loadSync("../proto/order.proto", {
   keepCase: true,
   longs: String,
   enums: String,
